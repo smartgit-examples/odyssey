@@ -16,3 +16,8 @@
 The UI performs presentation formatting only. Conversion at a subsystem boundary
 must be explicit. No controller accepts NaN or infinity as a missing-value marker.
 Invalid measurements carry quality metadata and fail the relevant interlock.
+
+Coast reserve schedules express pack energy in Wh and planning duration in
+seconds. Convert the available energy to watt-seconds before dividing by the
+horizon to report discretionary draw in W. A charge fraction is dimensionless;
+it must not be substituted directly for an energy or power budget.
