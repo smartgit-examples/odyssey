@@ -38,7 +38,14 @@ fn invalid_horizons_cannot_authorize_draw() {
         fraction: 0.8,
         reserve_fraction: 0.2,
     };
-    for horizon_s in [-1.0, 0.5, f64::NAN, f64::INFINITY, f64::NEG_INFINITY, 86_401.0] {
+    for horizon_s in [
+        -1.0,
+        0.5,
+        f64::NAN,
+        f64::INFINITY,
+        f64::NEG_INFINITY,
+        86_401.0,
+    ] {
         assert!(schedule.maximum_draw_w(horizon_s).is_err());
     }
 }
