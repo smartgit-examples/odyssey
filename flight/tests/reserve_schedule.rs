@@ -7,6 +7,7 @@ fn reserve_is_preserved_over_a_one_hour_coast() {
         reserve_fraction: 0.2,
     };
     assert!((schedule.maximum_draw_w(3600.0).unwrap() - 600.0).abs() < 1e-9);
+    assert!((schedule.maximum_draw_w(1800.0).unwrap() - 1200.0).abs() < 1e-9);
 }
 
 #[test]

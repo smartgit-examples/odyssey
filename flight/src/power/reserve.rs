@@ -1,6 +1,7 @@
 use crate::{finite_in_range, ControlError};
 #[derive(Debug, Clone, Copy)]
 pub struct ReserveSchedule {
+    /// Pack nameplate energy before applying charge and reserve fractions.
     pub capacity_wh: f64,
     pub fraction: f64,
     pub reserve_fraction: f64,
