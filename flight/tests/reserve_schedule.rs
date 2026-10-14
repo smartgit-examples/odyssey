@@ -30,3 +30,15 @@ fn zero_horizon_is_rejected() {
     };
     assert!(schedule.maximum_draw_w(0.0).is_err());
 }
+
+#[test]
+fn invalid_horizons_cannot_authorize_draw() {
+    let schedule = ReserveSchedule {
+        capacity_wh: 1000.0,
+        fraction: 0.8,
+        reserve_fraction: 0.2,
+    };
+    for horizon_s in [-1.0, 0.5, f64::NAN, f64::INFINITY, f64::NEG_INFINITY, 86_401.0] {
+        assert!(schedule.maximum_draw_w(horizon_s).is_err());
+    }
+}
