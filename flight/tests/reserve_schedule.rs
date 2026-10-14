@@ -12,11 +12,13 @@ fn reserve_is_preserved_over_a_one_hour_coast() {
 
 #[test]
 fn below_reserve_allows_no_discretionary_draw() {
-    let schedule = ReserveSchedule {
+    let mut schedule = ReserveSchedule {
         capacity_wh: 1000.0,
         fraction: 0.1,
         reserve_fraction: 0.2,
     };
+    assert_eq!(schedule.maximum_draw_w(3600.0).unwrap(), 0.0);
+    schedule.fraction = schedule.reserve_fraction;
     assert_eq!(schedule.maximum_draw_w(3600.0).unwrap(), 0.0);
 }
 #[test]
