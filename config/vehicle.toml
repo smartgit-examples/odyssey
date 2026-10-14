@@ -6,6 +6,7 @@ maximum_chamber_temperature_k = 1250.0
 pump_current_limit_a = 18.0
 
 [power]
+# Coast reserve planning uses the pack capacity and the same charge floor.
 battery_capacity_wh = 2400.0
 minimum_reserve_fraction = 0.20
 solar_area_m2 = 12.0
