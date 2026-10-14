@@ -12,7 +12,7 @@ impl ReserveSchedule {
         finite_in_range(self.capacity_wh, 1.0, 100_000.0)?;
         finite_in_range(self.fraction, 0.0, 1.0)?;
         finite_in_range(self.reserve_fraction, 0.0, 1.0)?;
-        finite_in_range(horizon_s, 1.0, 86_400.0)?;
+        finite_in_range(horizon_s, 1.0, 43_200.0)?;
         Ok(
             (self.fraction - self.reserve_fraction).max(0.0) * self.capacity_wh * 3600.0
                 / horizon_s,
